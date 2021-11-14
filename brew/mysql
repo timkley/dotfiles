@@ -1,0 +1,8 @@
+# Install mysql and set everything up according
+# to https://gist.github.com/nrollr/3f57fc15ded7dddddcc4e82fe137b58e
+brew install mysql@5.7
+brew link mysql@5.7 --force
+brew services start mysql
+# Lets take a deep breath while we wait for the service to be really started before trying to set a new password
+sleep 1
+mysqladmin -u root password 'root'

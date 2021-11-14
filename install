@@ -1,0 +1,29 @@
+#/bin/bash
+
+installFlow=(
+  hushLoginMessage
+  createDefaultFolders
+  installXcodeTools
+  installHomebrew
+  installOhMyZsh
+  symlinkDotfiles
+  installHomebrewFormulae
+  configureNpm
+  setMacOsDefaults
+  restoreMackupBackup
+)
+
+for step in "${installFlow[@]}"; do
+  stepFile="$HOME/.dotfiles/steps/$step.sh"
+  if [ -f $stepFile ]; then
+    separator
+    echo "Running $step"
+    source $stepFile
+  else
+    echo "File $stepFile not found"
+  fi
+done
+
+echo '++++++++++++++++++++++++++++++'
+echo 'All done!'
+echo '++++++++++++++++++++++++++++++'
