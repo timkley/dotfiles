@@ -1,2 +1,4 @@
+#/bin/bash
+
 brew install zsh-completions
 rm -f ~/.zcompdump; compinit

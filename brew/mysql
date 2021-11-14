@@ -1,3 +1,5 @@
+#/bin/bash
+
 # Install mysql and set everything up according
 # to https://gist.github.com/nrollr/3f57fc15ded7dddddcc4e82fe137b58e
 brew install mysql@5.7
