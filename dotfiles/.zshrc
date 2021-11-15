@@ -17,15 +17,11 @@ plugins=(git sudo z)
 
 source $ZSH/oh-my-zsh.sh
 
-# Load the shell dotfiles, and then some:
-# * ~/.dotfiles-custom can be used for other settings you don’t want to commit.
+# Load the shell dotfiles
 for file in ~/.dotfiles/shell/{exports,aliases,functions}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 
-for file in ~/.dotfiles-custom/shell/{exports,aliases,functions,zshrc}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file"
-done
 unset file
 
 if type brew &>/dev/null; then
