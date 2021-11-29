@@ -27,7 +27,6 @@ brewPackages=(
   mackup
   mysql
   node
-  nvm
   tig
   php@7.4
   php@8.0
