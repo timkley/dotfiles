@@ -39,9 +39,7 @@ for package in "${brewPackages[@]}"; do
 done
 
 caskPackages=(
-  alfred
   appcleaner
-  bettertouchtool
   caffeine
   firefox
   google-chrome
@@ -52,12 +50,13 @@ caskPackages=(
   mattermost
   parallels
   phpstorm
+  raycast
   sizzy
   spotify
   spotmenu
   tableplus
-  tunnelblick
   visual-studio-code
+  wireguard
 )
 
 for package in "${caskPackages[@]}"; do
