@@ -4,6 +4,7 @@ installFlow=(
   hushLoginMessage
   createDefaultFolders
   installXcodeTools
+  installPowerlineFonts
   installHomebrew
   installOhMyZsh
   symlinkDotfiles
