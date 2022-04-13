@@ -26,7 +26,6 @@ brewPackages=(
   imagemagick
   mackup
   mysql
-  node
   tig
   php@7.4
   php@8.0
