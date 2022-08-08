@@ -22,7 +22,9 @@ function installPackage() {
 }
 
 brewPackages=(
+  bat
   composer
+  exa
   imagemagick
   mackup
   mysql
