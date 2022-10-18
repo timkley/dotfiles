@@ -30,7 +30,7 @@ brewPackages=(
   mysql
   tig
   php@7.4
-  php@8.0
+  php@8.1
   yarn
   zsh-completions
 )
@@ -43,6 +43,7 @@ caskPackages=(
   appcleaner
   caffeine
   firefox
+  font-sauce-code-pro-nerd-font
   google-chrome
   imageoptim
   insomnia
@@ -52,7 +53,6 @@ caskPackages=(
   parallels
   phpstorm
   raycast
-  sizzy
   spotify
   spotmenu
   tableplus
