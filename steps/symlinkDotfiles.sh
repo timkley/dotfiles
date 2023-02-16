@@ -3,10 +3,10 @@
 # Add global gitignore
 echo "Symlinking and setting git config core.excludesFile to $HOME/.global-gitignore"
 separator
-ln -s $HOME/.dotfiles/shell/.global-gitignore $HOME/.global-gitignore
-git config --global core.excludesfile $HOME/.global-gitignore
 
 dotfiles=(
+  .gitconfig
+  .global-gitignore
   .ideavimrc
   .mackup.cfg
   .vimrc

@@ -1,0 +1,21 @@
+[user]
+	name = Tim Kleyersburg
+	email = tk@wacg.de
+[push]
+	default = current
+	autoSetupRemote = true
+[core]
+	excludesfile = /Users/tk/.global-gitignore
+	autocrlf = input
+[pager]
+	branch = false
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+[alias]
+	status-all = "!for d in `find . -name \".git\"`; do echo \"\n*** Repository: $d ***\" && git --git-dir=$d --work-tree=$d/.. status; done"
+[rerere]
+	enabled = true

@@ -13,6 +13,8 @@ syntax on
 set ignorecase
 set smartcase
 
+xnoremap p pgvy
+
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
