@@ -10,6 +10,7 @@ dotfiles=(
   .ideavimrc
   .mackup.cfg
   .vimrc
+  .yabairc
   .zshrc
 )
 
