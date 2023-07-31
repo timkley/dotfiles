@@ -12,6 +12,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 syntax on
 set ignorecase
 set smartcase
+set iskeyword-=_
 
 xnoremap p pgvy
 

@@ -23,14 +23,11 @@ function installPackage() {
 
 brewPackages=(
   bat
-  composer
   exa
   imagemagick
   mackup
   mysql
   tig
-  php@7.4
-  php@8.1
   yarn
   zsh-completions
 )
@@ -41,10 +38,11 @@ done
 
 caskPackages=(
   appcleaner
+  brave
   caffeine
   firefox
   font-sauce-code-pro-nerd-font
-  google-chrome
+  herd
   imageoptim
   insomnia
   iterm2
