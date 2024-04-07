@@ -50,3 +50,4 @@ export NVM_DIR="$HOME/.nvm"
 # Load Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH=~/.composer/vendor/bin:$PATH

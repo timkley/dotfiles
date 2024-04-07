@@ -13,6 +13,7 @@ syntax on
 set ignorecase
 set smartcase
 set iskeyword-=_
+set number
 
 xnoremap p pgvy
 

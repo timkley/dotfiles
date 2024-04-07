@@ -26,7 +26,6 @@ brewPackages=(
   exa
   imagemagick
   mackup
-  mysql
   tig
   yarn
   zsh-completions
@@ -38,14 +37,12 @@ done
 
 caskPackages=(
   appcleaner
-  brave
   caffeine
+  dbngin
   firefox
   font-sauce-code-pro-nerd-font
   herd
-  imageoptim
   insomnia
-  iterm2
   itsycal
   mattermost
   parallels
@@ -54,8 +51,9 @@ caskPackages=(
   spotify
   spotmenu
   tableplus
-  visual-studio-code
+  warp
   wireguard
+  zed
 )
 
 for package in "${caskPackages[@]}"; do
