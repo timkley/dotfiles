@@ -22,12 +22,14 @@ function installPackage() {
 }
 
 brewPackages=(
+  ansible
   bat
   exa
   imagemagick
   mackup
+  openjdk@17
+  python@3
   tig
-  yarn
   zsh-completions
 )
 
@@ -36,12 +38,16 @@ for package in "${brewPackages[@]}"; do
 done
 
 caskPackages=(
+  amethyst
   appcleaner
   caffeine
   dbngin
+  discord
   firefox
   font-sauce-code-pro-nerd-font
   herd
+  hyperkey
+  imageoptim
   insomnia
   itsycal
   mattermost
