@@ -10,7 +10,10 @@ First, install Xcode Command Line Tools:
 xcode-select --install
 ```
 
-After the installation finished, clone the repository and run the `bootstrap` script:
+Now, make sure that Terminal has Full Disk Access: Open System Preferences, go to Security & Privacy, click on the Privacy tab, and add Terminal to the Full Disk Access list.  
+Unless you do this, the installation of some apps will likely fail.
+
+Now clone the repository and run the `bootstrap` script:
 
 ```shell
 cd ~

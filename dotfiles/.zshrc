@@ -1,6 +1,5 @@
 # Path to your oh-my-zsh installation.
 ZSH=$HOME/.oh-my-zsh
-ZSH_CUSTOM=$HOME/.dotfiles/misc/oh-my-zsh-custom
 ZSH_THEME="agnoster"
 # ignore casing in z plugin
 ZSHZ_CASE=ignore
