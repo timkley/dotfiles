@@ -26,7 +26,7 @@ brewPackages=(
   bat
   git
   imagemagick
-  openjdk@22
+  openjdk
   python@3
   tig
   zsh-completions
