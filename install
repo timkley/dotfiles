@@ -23,6 +23,8 @@ for step in "${installFlow[@]}"; do
   fi
 done
 
+source ~/.zshrc
+
 echo '++++++++++++++++++++++++++++++'
 echo 'All done!'
 echo '++++++++++++++++++++++++++++++'

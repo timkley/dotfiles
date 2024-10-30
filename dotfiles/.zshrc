@@ -45,6 +45,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Load Liberica Java
 export PATH="$PATH:/Library/Java/JavaVirtualMachines/liberica-jdk-22.jdk/Contents/Home/bin"
 
 # Herd injected PHP binary.
