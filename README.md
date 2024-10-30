@@ -10,7 +10,7 @@ First, install Xcode Command Line Tools:
 xcode-select --install
 ```
 
-Then, clone the repository and run the `bootstrap` script:
+After the installation finished, clone the repository and run the `bootstrap` script:
 
 ```shell
 cd ~

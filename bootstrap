@@ -10,5 +10,5 @@ if [[ $reply =~ ^[Yy]$ ]]
 then
 	sudo -v # ask password beforehand
 
-	bash ~/.dotfiles/install
+	source ~/.dotfiles/install
 fi
