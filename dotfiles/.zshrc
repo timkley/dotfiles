@@ -1,10 +1,7 @@
 # Path to your oh-my-zsh installation.
 ZSH=$HOME/.oh-my-zsh
-
 ZSH_CUSTOM=$HOME/.dotfiles/misc/oh-my-zsh-custom
-
 ZSH_THEME="agnoster"
-
 # ignore casing in z plugin
 ZSHZ_CASE=ignore
 
@@ -45,7 +42,6 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Load Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
