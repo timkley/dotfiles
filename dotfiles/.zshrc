@@ -13,7 +13,6 @@ plugins=(
 	git
 	sudo
 	z
-	zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
