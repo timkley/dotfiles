@@ -9,5 +9,6 @@ read -p 'Answer: '  reply
 if [[ $reply =~ ^[Yy]$ ]]
 then
 	sudo -v # ask password beforehand
-	source ~/.dotfiles/install
+
+	bash ~/.dotfiles/install
 fi
