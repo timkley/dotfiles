@@ -1,7 +1,7 @@
 #/bin/bash
 
 # Install nvm (Node Version Manager)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash'
 
 # Create a directory for global packages and tell npm where to store globally installed packages
 mkdir "${HOME}/.npm-packages"
