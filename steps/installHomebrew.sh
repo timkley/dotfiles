@@ -5,6 +5,3 @@
 
 # Load Homebrew before .zshrc is loaded again
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Tap
-brew tap homebrew/cask-fonts
