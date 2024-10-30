@@ -29,7 +29,6 @@ brewPackages=(
   openjdk
   python@3
   tig
-  zsh-completions
 )
 
 for package in "${brewPackages[@]}"; do

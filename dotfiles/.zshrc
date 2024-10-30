@@ -38,14 +38,6 @@ export NVM_DIR="$HOME/.nvm"
 # Load Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-if type brew &>/dev/null; then
-  compaudit | xargs chmod g-w
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
 # Load Liberica Java
 export PATH="$PATH:/Library/Java/JavaVirtualMachines/liberica-jdk-22.jdk/Contents/Home/bin"
 
