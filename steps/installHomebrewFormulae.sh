@@ -24,10 +24,8 @@ function installPackage() {
 brewPackages=(
   ansible
   bat
-  exa
   imagemagick
-  mackup
-  openjdk@17
+  openjdk@22
   python@3
   tig
   zsh-completions
@@ -39,16 +37,14 @@ done
 
 caskPackages=(
   amethyst
-  appcleaner
-  caffeine
   dbngin
   discord
   firefox
   font-sauce-code-pro-nerd-font
   herd
+  httpie
   hyperkey
   imageoptim
-  insomnia
   itsycal
   mattermost
   parallels

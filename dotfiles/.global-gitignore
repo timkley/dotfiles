@@ -1,3 +1,7 @@
+# global
 .idea
 .DS_Store
 node_modules
+
+# project specific
+meshop_*.yml

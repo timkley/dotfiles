@@ -1,9 +1,0 @@
-#/bin/bash
-
-# Install mysql and set everything up according
-# to https://gist.github.com/nrollr/3f57fc15ded7dddddcc4e82fe137b58e
-brew install mysql
-brew services start mysql
-# Lets take a deep breath while we wait for the service to be really started before trying to set a new password
-sleep 1
-mysqladmin -u root password 'root'
