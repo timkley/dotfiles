@@ -1,7 +1,0 @@
-#/bin/bash
-
-brew install zsh-completions
-rm -f ~/.zcompdump; compinit
-
-# fix permissions for unsecure directories
-compaudit | xargs chmod g-w
