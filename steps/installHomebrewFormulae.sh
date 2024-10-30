@@ -24,6 +24,7 @@ function installPackage() {
 brewPackages=(
   ansible
   bat
+  git
   imagemagick
   openjdk@22
   python@3
@@ -37,7 +38,6 @@ done
 
 caskPackages=(
   amethyst
-  dbngin
   discord
   firefox
   font-sauce-code-pro-nerd-font
@@ -46,16 +46,20 @@ caskPackages=(
   hyperkey
   imageoptim
   itsycal
+  logi-options+
   mattermost
+  obsidian
   parallels
   phpstorm
+  prism
+  ray
   raycast
   spotify
   spotmenu
+  steam
   tableplus
   warp
   wireguard
-  zed
 )
 
 for package in "${caskPackages[@]}"; do

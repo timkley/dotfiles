@@ -8,9 +8,7 @@ dotfiles=(
   .gitconfig
   .global-gitignore
   .ideavimrc
-  .mackup.cfg
   .vimrc
-  .yabairc
   .zshrc
 )
 

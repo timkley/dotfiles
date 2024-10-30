@@ -8,7 +8,6 @@ read -p 'Answer: '  reply
 
 if [[ $reply =~ ^[Yy]$ ]]
 then
-	sudo -v #ask password beforehand
-  read -n 1 -s -r -p "Are you logged into iCloud? Otherwise Mackup won't work. Press any key to continue."
+	sudo -v # ask password beforehand
 	source ~/.dotfiles/install
 fi
