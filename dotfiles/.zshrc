@@ -26,13 +26,6 @@ done
 
 unset file
 
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
 # Sudoless npm https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md
 NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$PATH:$NPM_PACKAGES/bin"
@@ -45,6 +38,13 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
 
 # Load Liberica Java
 export PATH="$PATH:/Library/Java/JavaVirtualMachines/liberica-jdk-22.jdk/Contents/Home/bin"
