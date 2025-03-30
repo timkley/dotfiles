@@ -42,7 +42,6 @@ caskPackages=(
   font-sauce-code-pro-nerd-font
   herd
   httpie
-  hyperkey
   imageoptim
   itsycal
   logi-options+
