@@ -49,7 +49,7 @@ caskPackages=(
   obsidian
   parallels
   phpstorm
-  prism
+  prismlauncher
   ray
   raycast
   spotify
@@ -58,6 +58,7 @@ caskPackages=(
   tableplus
   warp
   wireguard
+  xnapper
 )
 
 for package in "${caskPackages[@]}"; do
