@@ -24,6 +24,9 @@ done
 
 unset file
 
+# Load secrets (local-only, not tracked in dotfiles)
+[ -f ~/.secrets ] && source ~/.secrets
+
 # Sudoless npm https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md
 NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$PATH:$NPM_PACKAGES/bin"
@@ -31,11 +34,11 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # Load Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Node version manager (fnm - fast alternative to nvm)
+eval "$(fnm env --use-on-cd)"
 
 # Load Liberica Java
 export PATH="$PATH:/Library/Java/JavaVirtualMachines/liberica-jdk-22.jdk/Contents/Home/bin"
@@ -68,3 +71,17 @@ export HERD_PHP_84_INI_SCAN_DIR="/Users/tk/Library/Application Support/Herd/conf
 
 # Created by `pipx` on 2024-07-10 08:57:03
 export PATH="$PATH:/Users/tk/.local/bin"
+
+# bun completions
+[ -s "/Users/tk/.bun/_bun" ] && source "/Users/tk/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/Users/tk/.opencode/bin:$PATH
+
+
+# Herd injected PHP 8.5 configuration.
+export HERD_PHP_85_INI_SCAN_DIR="/Users/tk/Library/Application Support/Herd/config/php/85/"
