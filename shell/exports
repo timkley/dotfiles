@@ -1,31 +1,53 @@
-# Make vim the default editor
+# Editor
 export EDITOR="vim"
 
-# Larger bash history (allow 32³ entries; default is 500)
+# History (zsh-compatible)
 export HISTSIZE=32768
-export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups
-# Make some commands not show up in history
-export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
-# And include the parameter for ZSH
+export SAVEHIST=$HISTSIZE
 export HISTORY_IGNORE="(ls|cd|cd -|pwd|exit|date|* --help)"
 
-# Prefer US English and use UTF-8
+# Locale
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-# Highlight section titles in manual pages
-export LESS_TERMCAP_md="$ORANGE"
-
-# Don’t clear the screen after quitting a manual page
+# Don't clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
-# Always enable colored `grep` output
-export GREP_OPTIONS="--color=auto"
-
-# Do not auto update brew
+# Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
-
 
 # Claude Code
 export CLAUDE_CODE_MAX_OUTPUT_TOKENS=64000
+
+# --- PATH additions ---
+
+# Herd (PHP)
+export PATH="$HOME/Library/Application Support/Herd/bin/:$PATH"
+
+# Herd PHP version configs
+export HERD_PHP_74_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/74/"
+export HERD_PHP_80_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/80/"
+export HERD_PHP_81_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/81/"
+export HERD_PHP_82_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/82/"
+export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/83/"
+export HERD_PHP_84_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/84/"
+export HERD_PHP_85_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/85/"
+
+# Ruby
+export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/4.0.0/bin:$PATH"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pipx
+export PATH="$PATH:$HOME/.local/bin"
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"
+
+# LM Studio
+export PATH="$PATH:$HOME/.lmstudio/bin"
+
+# Mauve development tools
+export PATH="$HOME/Code/Mauve/bin:$PATH"
