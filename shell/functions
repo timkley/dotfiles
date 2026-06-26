@@ -1,0 +1,106 @@
+# Google Cloud local auth profiles.
+#
+# Usage:
+#   gcloud-auth r2d2
+#   gcloud-auth login r2d2
+#   gcloud-auth status
+
+typeset -gA GCLOUD_AUTH_PROJECTS
+typeset -gA GCLOUD_AUTH_PROJECT_NUMBERS
+typeset -gA GCLOUD_AUTH_DIRS
+typeset -gA GCLOUD_AUTH_CLIENTS
+typeset -gA GCLOUD_AUTH_SCOPES
+
+GCLOUD_AUTH_PROJECTS[r2d2]="r2d2-280807"
+GCLOUD_AUTH_DIRS[r2d2]="$HOME/.config/gcloud-profiles/r2d2-cloud"
+GCLOUD_AUTH_CLIENTS[r2d2]="$HOME/.config/gcloud-profiles/r2d2-cloud/oauth-client.json"
+GCLOUD_AUTH_SCOPES[r2d2]="openid,https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/webmasters.readonly"
+
+GCLOUD_AUTH_PROJECTS[bio-apo]="fleet-purpose-325613"
+GCLOUD_AUTH_DIRS[bio-apo]="$HOME/.config/gcloud-profiles/bio-apo"
+GCLOUD_AUTH_CLIENTS[bio-apo]="$HOME/.config/gcloud-profiles/bio-apo/oauth-client.json"
+
+GCLOUD_AUTH_PROJECTS[mauve-kpi]="mauve-kpi"
+GCLOUD_AUTH_PROJECT_NUMBERS[mauve-kpi]="401669945316"
+GCLOUD_AUTH_DIRS[mauve-kpi]="$HOME/.config/gcloud-profiles/mauve-kpi"
+GCLOUD_AUTH_CLIENTS[mauve-kpi]="$HOME/.config/gcloud-profiles/r2d2-cloud/oauth-client.json"
+GCLOUD_AUTH_SCOPES[mauve-kpi]="openid,https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/webmasters.readonly"
+
+GCLOUD_AUTH_DEFAULT_SCOPES="openid,https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/analytics.readonly"
+
+gcloud-auth() {
+	local command_name="$1"
+	local profile="$1"
+
+	if [[ "$command_name" == "login" ]]; then
+		profile="$2"
+	elif [[ "$command_name" == "status" ]]; then
+		echo "CLOUDSDK_CONFIG=${CLOUDSDK_CONFIG:-}"
+		echo "GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS:-}"
+		echo "GOOGLE_BILLING_PROJECT=${GOOGLE_BILLING_PROJECT:-}"
+		echo "GOOGLE_CLOUD_PROJECT=${GOOGLE_CLOUD_PROJECT:-}"
+		echo "CLOUDSDK_CORE_PROJECT=${CLOUDSDK_CORE_PROJECT:-}"
+		echo "CLOUDSDK_BILLING_QUOTA_PROJECT=${CLOUDSDK_BILLING_QUOTA_PROJECT:-}"
+		command gcloud config list 2>/dev/null
+		return
+	elif [[ "$command_name" == "list" || "$command_name" == "profiles" ]]; then
+		echo "Profiles: ${(k)GCLOUD_AUTH_PROJECTS}"
+		return
+	fi
+
+	if [[ -z "$profile" || -z "${GCLOUD_AUTH_PROJECTS[$profile]}" ]]; then
+		echo "Usage: gcloud-auth <profile> | gcloud-auth login <profile> | gcloud-auth status | gcloud-auth list"
+		echo "Profiles: ${(k)GCLOUD_AUTH_PROJECTS}"
+		return 2
+	fi
+
+	if ! command -v gcloud >/dev/null 2>&1; then
+		echo "gcloud not found in PATH"
+		return 127
+	fi
+
+	local project="${GCLOUD_AUTH_PROJECTS[$profile]}"
+	local project_number="${GCLOUD_AUTH_PROJECT_NUMBERS[$profile]:-}"
+	local config_dir="${GCLOUD_AUTH_DIRS[$profile]}"
+	local adc_file="$config_dir/application_default_credentials.json"
+	local client_file="${GCLOUD_AUTH_CLIENTS[$profile]}"
+	local scopes="${GCLOUD_AUTH_SCOPES[$profile]:-$GCLOUD_AUTH_DEFAULT_SCOPES}"
+
+	mkdir -p "$config_dir"
+
+	export CLOUDSDK_CONFIG="$config_dir"
+	export GOOGLE_APPLICATION_CREDENTIALS="$adc_file"
+	export GOOGLE_BILLING_PROJECT="$project"
+	export GOOGLE_CLOUD_PROJECT="$project"
+	export CLOUDSDK_CORE_PROJECT="$project"
+	export CLOUDSDK_BILLING_QUOTA_PROJECT="$project"
+
+	if [[ "$command_name" == "login" ]]; then
+		if [[ ! -f "$client_file" ]]; then
+			echo "Missing OAuth client file: $client_file"
+			return 2
+		fi
+
+		command gcloud auth application-default login \
+			--client-id-file="$client_file" \
+			--scopes="$scopes"
+
+		command gcloud auth application-default set-quota-project "$project"
+	fi
+
+	if ! command gcloud config set project "$project" >/dev/null 2>&1; then
+		echo "Warning: failed to set gcloud project: $project"
+	fi
+	if ! command gcloud config set billing/quota_project "$project" >/dev/null 2>&1; then
+		echo "Warning: failed to set gcloud quota project: $project"
+	fi
+
+	echo "Google profile: $profile"
+	echo "Project: $project"
+	if [[ -n "$project_number" ]]; then
+		echo "Project number: $project_number"
+	fi
+	echo "CLOUDSDK_CONFIG: $config_dir"
+	echo "GOOGLE_APPLICATION_CREDENTIALS: $adc_file"
+	echo "GOOGLE_BILLING_PROJECT: $project"
+}
